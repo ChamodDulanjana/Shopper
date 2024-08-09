@@ -11,7 +11,7 @@ interface Props {
 
 const Item = ({id, image, name, new_price, old_price, key}: Props) => {
     return (
-        <div className="w-56 hover:transform scale-105 hover:transition duration-500">
+        <div className="w-56  hover:transition duration-600 hover:scale-105 ">
             <img src={image} alt=""/>
             <p className="mt-2 text-sm">{name}</p>
             <div className="flex gap-4 mt-2">
