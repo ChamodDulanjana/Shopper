@@ -6,6 +6,7 @@ import ShopCategory from "./pages/ShopCategory.tsx";
 import Product from "./pages/Product.tsx";
 import Cart from "./pages/Cart.tsx";
 import LoginSignup from "./pages/LoginSignup.tsx";
+import Footer from "./component/footer/Footer.tsx";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
                 <Route path="/cart" element={<Cart/>}/>
                 <Route path="/login" element={<LoginSignup/>}/>
             </Routes>
+            <Footer/>
         </BrowserRouter>
 
     </div>

@@ -4,7 +4,7 @@ import Item from "../item/Item.tsx";
 
 const NewCollections = () => {
     return (
-        <div className="flex flex-col items-center gap-3 h-[90vh] mt-10">
+        <div className="flex flex-col items-center gap-3 h-[90vh] mt-10 mb-96">
             <h1 className="text-[#171717] text-3xl font-medium mt-10">NEW COLLECTIONS</h1>
             <hr className="bg-[#252525] mb-5 w-44 h-1 rounded-full"/>
             <div className="grid grid-cols-4 mt-16 gap-14">
