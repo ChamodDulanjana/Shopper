@@ -40,7 +40,7 @@ const ShopCategory = ({banner, category}:ShopCategoryProps) => {
                 </div>
             </div>
             <div className="flex justify-center items-center m-auto w-[160px] h-[50px] rounded-[75px] bg-[#ededed]
-            text-[#787878] text-sm font-medium cursor-pointer active:font-[10px] mb-16">
+            text-[#787878] text-sm font-medium cursor-pointer active:text-[13px] mb-20 active:transition duration-500">
                 Explore More
             </div>
 
