@@ -9,7 +9,7 @@ interface Props {
     key?: number
 }
 
-const Item = ({id, image, name, new_price, old_price, key}: Props) => {
+const Item = ({id, image, name, new_price, old_price}: Props) => {
     return (
         <div className="w-56  hover:transition duration-600 hover:scale-105 ">
             <img src={image} alt=""/>

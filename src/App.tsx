@@ -7,6 +7,9 @@ import Product from "./pages/Product.tsx";
 import Cart from "./pages/Cart.tsx";
 import LoginSignup from "./pages/LoginSignup.tsx";
 import Footer from "./component/footer/Footer.tsx";
+import men_banner from './assets/banner_mens.png'
+import women_banner from './assets/banner_women.png'
+import kids_banner from './assets/banner_kids.png'
 
 
 function App() {
@@ -17,9 +20,9 @@ function App() {
             <Navbar />
             <Routes>
                 <Route path="/" element={<Shop/>}/>
-                <Route path="/mens" element={<ShopCategory category={"men"}/>}/>
-                <Route path="/women" element={<ShopCategory category={"women"}/>}/>
-                <Route path="/kids" element={<ShopCategory category={"kids"}/>}/>
+                <Route path="/men" element={<ShopCategory banner={men_banner as string} category={"men"}/>}/>
+                <Route path="/women" element={<ShopCategory banner={women_banner as string} category={"women"}/>}/>
+                <Route path="/kids" element={<ShopCategory banner={kids_banner as string} category={"kid"}/>}/>
                 <Route path="/product" element={<Product/>}>
                     <Route path=":productId" element={<Product/>}/>
                 </Route>

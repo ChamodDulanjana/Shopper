@@ -24,7 +24,7 @@ const Hero = () => {
 
 
             <div className="flex-1 flex items-center justify-center">
-                <img src={hero_img} className="w-[500px]"/>
+                <img src={hero_img} className="w-[500px] pt-4"/>
             </div>
         </div>
     );

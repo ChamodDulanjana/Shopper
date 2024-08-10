@@ -35,7 +35,17 @@ import p34_img from "./product_34.png";
 import p35_img from "./product_35.png";
 import p36_img from "./product_36.png";
 
-let all_product = [
+ export interface Product{
+  id: number;
+  name: string;
+  category: string;
+  image: any;
+  new_price: number;
+  old_price: number;
+}
+
+
+const all_product: Product[]  = [
   {
     id: 1,
     name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
