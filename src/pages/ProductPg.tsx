@@ -3,6 +3,8 @@ import {ShopContext} from "../context/ShopContext.tsx";
 import {useParams} from "react-router-dom";
 import BreadCrum from "../component/breadcrum/BreadCrum.tsx";
 import {Product} from "../assets/all_product.tsx";
+import ProductDisplay from "../component/productDisplay/ProductDisplay.tsx";
+import DescriptionBox from "../component/descriptionBox/DescriptionBox.tsx";
 
 
 const ProductPg = () => {
@@ -13,6 +15,7 @@ const ProductPg = () => {
     return (
         <div>
             <BreadCrum props={product}/>
+            <ProductDisplay props={product}/>
         </div>
     );
 };
