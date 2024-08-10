@@ -16,6 +16,7 @@ const ProductPg = () => {
         <div>
             <BreadCrum props={product}/>
             <ProductDisplay props={product}/>
+            <DescriptionBox/>
         </div>
     );
 };
