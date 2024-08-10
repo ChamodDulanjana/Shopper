@@ -3,7 +3,7 @@ import Navbar from "./component/navbar/Navbar.tsx";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Shop from "./pages/Shop.tsx";
 import ShopCategory from "./pages/ShopCategory.tsx";
-import Product from "./pages/Product.tsx";
+import ProductPg from "./pages/ProductPg.tsx";
 import Cart from "./pages/Cart.tsx";
 import LoginSignup from "./pages/LoginSignup.tsx";
 import Footer from "./component/footer/Footer.tsx";
@@ -23,8 +23,8 @@ function App() {
                 <Route path="/men" element={<ShopCategory banner={men_banner as string} category={"men"}/>}/>
                 <Route path="/women" element={<ShopCategory banner={women_banner as string} category={"women"}/>}/>
                 <Route path="/kids" element={<ShopCategory banner={kids_banner as string} category={"kid"}/>}/>
-                <Route path="/product" element={<Product/>}>
-                    <Route path=":productId" element={<Product/>}/>
+                <Route path="/product" element={<ProductPg/>}>
+                    <Route path=":productId" element={<ProductPg/>}/>
                 </Route>
                 <Route path="/cart" element={<Cart/>}/>
                 <Route path="/login" element={<LoginSignup/>}/>
