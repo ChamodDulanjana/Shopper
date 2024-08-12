@@ -2,10 +2,13 @@ import React, {useContext} from 'react';
 import {ProductProp} from "../breadcrum/BreadCrum.tsx";
 import star_icon from '../../assets/star_icon.png'
 import star_dull_icon from '../../assets/star_dull_icon.png'
+import {ShopContext} from "../../context/ShopContext.tsx";
 
 const ProductDisplay = ({props}: ProductProp) => {
     const product = props;
     const sizesStyles = "bg-[#F0EEF3] border-[#8c8c8c] border-[1px] w-10 h-10 flex items-center justify-center rounded-[3px] cursor-pointer";
+
+    const {addToCart} = useContext(ShopContext);
 
     return (
         <div className="flex mx-24 mt-10 mb-20">
