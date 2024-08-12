@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {LegacyRef, useRef, useState} from 'react';
 import {DescriptionBoxObj} from "../../assets/DescriptionBoxList.tsx";
 
 
@@ -13,17 +13,16 @@ const DescriptionBox = () => {
         })
     }
 
-
         return (
         <div className="mx-16">
             <div className="flex">
                 <div
                     onClick={() => changeProperty("description")}
-                    className="flex items-center justify-center text-sm font-medium w-[140px] h-[50px] border-[#d0d0d0] border-[1px]" >Description
+                    className="flex items-center justify-center text-sm font-medium w-[140px] h-[50px] border-[#d0d0d0] border-[1px] cursor-pointer" >Description
                 </div>
                 <div
                     onClick={() => changeProperty("review")}
-                    className="flex items-center justify-center text-sm font-medium w-[140px] h-[50px] border-[#d0d0d0] border-[1px]">Reviews
+                    className="flex items-center justify-center text-sm font-medium w-[140px] h-[50px] border-[#d0d0d0] border-[1px] cursor-pointer">Reviews
                     (122)
                 </div>
             </div>

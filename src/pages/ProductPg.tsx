@@ -5,6 +5,7 @@ import BreadCrum from "../component/breadcrum/BreadCrum.tsx";
 import {Product} from "../assets/all_product.tsx";
 import ProductDisplay from "../component/productDisplay/ProductDisplay.tsx";
 import DescriptionBox from "../component/descriptionBox/DescriptionBox.tsx";
+import RelatedProducts from "../component/relatedProducts/RelatedProducts.tsx";
 
 
 const ProductPg = () => {
@@ -17,6 +18,7 @@ const ProductPg = () => {
             <BreadCrum props={product}/>
             <ProductDisplay props={product}/>
             <DescriptionBox/>
+            <RelatedProducts props={product}/>
         </div>
     );
 };
