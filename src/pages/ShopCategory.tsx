@@ -10,7 +10,7 @@ interface ShopCategoryProps {
 }
 
 const ShopCategory = ({banner, category}:ShopCategoryProps) => {
-    const all_products = useContext(ShopContext);
+    const all_product = useContext(ShopContext);
     return (
         <div>
             <img src={banner} className="w-[80%] block m-10 mb-0 mx-auto"/>
@@ -29,7 +29,7 @@ const ShopCategory = ({banner, category}:ShopCategoryProps) => {
 
             <div className="flex justify-center items-center w-full">
                 <div className="grid grid-cols-4 mb-20 mx-24  gap-12">
-                    {all_products.map((item, index) => {
+                    {all_product.allProduct.map((item, index) => {
                         if (category === item.category) {
                             return <Item key={index} id={item.id} image={item.image as string} name={item.name}
                                          new_price={item.new_price} old_price={item.old_price}/>

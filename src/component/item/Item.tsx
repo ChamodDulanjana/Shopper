@@ -12,7 +12,13 @@ interface Props {
 
 const Item = ({id, image, name, new_price, old_price}: Props) => {
     return (
-        <Link to={`/product/${id}`}>
+        <Link to={`/product/${id}`} onClick={():void =>{
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'auto'  // Optional: 'auto' or 'smooth'
+            });
+        }}>
             <div className="w-56  hover:transition duration-600 hover:scale-105 cursor-pointer">
                 <img src={image} alt=""/>
                 <p className="mt-2 text-sm">{name}</p>

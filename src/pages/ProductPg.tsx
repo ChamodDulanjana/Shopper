@@ -11,7 +11,9 @@ import RelatedProducts from "../component/relatedProducts/RelatedProducts.tsx";
 const ProductPg = () => {
     const all_product = useContext(ShopContext);
     const {productId} = useParams();
-    const product= all_product.find((item:Product) => item.id === Number(productId));
+    console.log(all_product);
+    const product= all_product.allProduct.find((item:Product) => item.id === Number(productId));
+    console.log(all_product.allProduct);
 
     return (
         <div>
