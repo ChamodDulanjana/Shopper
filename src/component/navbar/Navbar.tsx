@@ -1,4 +1,4 @@
-import React, {useContext, useRef, useState} from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import logo from '../../assets/logo.png'
 import cart_logo from '../../assets/cart_icon.png'
 import {Link} from "react-router-dom";
@@ -6,19 +6,35 @@ import {ShopContext} from "../../context/ShopContext.tsx";
 import menu_icon from '../../assets/menu_icon.png'
 import './Navbar.css'
 
-const Navbar = () => {
-    const ulStyles = "flex flex-col items-center justify-center gap-3 cursor-pointer max-xl:gap-1";
+const Navbar:React.FC = () => {
+    const liStyles = "flex flex-col items-center justify-center gap-3 cursor-pointer max-xl:gap-1";
+    const liSideNavStyles = "flex flex-col items-center justify-center cursor-pointer " +
+        "border-[2px] border-[#8c8c8c] w-full h-12 hover:bg-[#8c8c8c]";
     const hrStyles = "border-non w-[80%] h-1 rounded-2xl bg-[#FF4141]";
 
     const [menu, setMenu] = useState<string>("shop");
     const {getTotalCartItems} = useContext(ShopContext);
     const sideMenuRef = useRef(null);
+    const listItemRef1 = useRef<HTMLLIElement>(null);
+    const listItemRef2 = useRef<HTMLLIElement>(null);
+    const listItemRef3 = useRef<HTMLLIElement>(null);
+    const listItemRef4 = useRef<HTMLLIElement>(null);
 
 
     const menuIconToggle = (e)=> {
        sideMenuRef.current.classList.toggle('.navbar');
        e.target.classList.toggle('open');
     }
+
+    useEffect(() => {
+        // Check if the ref is not null (TypeScript safety check)
+        listItemRef1.current && menu === 'shop' ? listItemRef1.current.style.backgroundColor = 'lightcoral': listItemRef1.current.style.backgroundColor = '';
+        listItemRef2.current && menu === 'men' ? listItemRef2.current.style.backgroundColor = 'lightcoral': listItemRef2.current.style.backgroundColor = '';
+        listItemRef3.current && menu === 'women' ? listItemRef3.current.style.backgroundColor = 'lightcoral': listItemRef3.current.style.backgroundColor = '';
+        listItemRef4.current && menu === 'kids' ? listItemRef4.current.style.backgroundColor = 'lightcoral': listItemRef4.current.style.backgroundColor = '';
+
+    }, [menu]); // Empty dependency array means this effect runs once after the component mounts
+
 
     return (
         <div className="flex justify-between items-center p-14 shadow-lg h-20 max-xl:p-12">
@@ -32,23 +48,23 @@ const Navbar = () => {
                 className="w-6 cursor-pointer hidden max-[800px]:block"/>
             <ul
                 className="flex items-center gap-14 list-none text-[#626262] font-medium max-xl:gap-10 max-xl:text-sm max-lg:ml-20 max-[800px]:hidden">
-                <li onClick={()=>{setMenu("shop")}}
-                    className={ulStyles}
+                <li onClick={()=>setMenu("shop")}
+                    className={liStyles}
                 >
                     <Link to="/">Shop</Link> {menu === "shop" ? <hr className={hrStyles}/> : <></>}
                 </li>
-                <li onClick={()=>{setMenu("men")}}
-                    className={ulStyles}
+                <li onClick={()=>setMenu("men")}
+                    className={liStyles}
                 >
                     <Link to="/men">Men</Link> {menu === "men" ? <hr className={hrStyles}/> : <></>}
                 </li>
-                <li onClick={()=>{setMenu("women")}}
-                    className={ulStyles}
+                <li onClick={()=>setMenu("women")}
+                    className={liStyles}
                 >
                     <Link to="/women">Women</Link> {menu === "women" ? <hr className={hrStyles}/> : <></>}
                 </li>
-                <li onClick={()=>{setMenu("kids")}}
-                    className={ulStyles}
+                <li onClick={()=>setMenu("kids")}
+                    className={liStyles}
                 >
                     <Link to="/kids">Kids</Link> {menu === "kids" ? <hr className={hrStyles}/> : <></>}
                 </li>
@@ -74,41 +90,37 @@ const Navbar = () => {
                 ref={sideMenuRef}
                 className="bg-pink-200 w-[270px] h-[80%] absolute right-[0px] top-24 rounded-l-3xl">
                 <ul
-                    className="flex flex-col items-center gap-10 list-none text-[#626262] font-medium mt-10 text-[16px]">
-                    <li onClick={() => {
-                        setMenu("shop")
-                    }}
-                        className={ulStyles}
+                    className="flex flex-col items-center gap-0 list-none text-[#626262] font-medium mt-10 text-[16px]">
+                    <li onClick={() => setMenu("shop")}
+                        className={liSideNavStyles}
+                        ref={listItemRef1}
                     >
-                        <Link to="/">Shop</Link> {menu === "shop" ? <hr className={hrStyles}/> : <></>}
+                        <Link to="/">Shop</Link> {sidenavCheck()}
                     </li>
-                    <li onClick={() => {
-                        setMenu("men")
-                    }}
-                        className={ulStyles}
+                    <li onClick={() => setMenu("men")}
+                        className={liSideNavStyles}
+                        ref={listItemRef2}
                     >
-                        <Link to="/men">Men</Link> {menu === "men" ? <hr className={hrStyles}/> : <></>}
+                        <Link to="/men">Men</Link> {sidenavCheck()}
                     </li>
-                    <li onClick={() => {
-                        setMenu("women")
-                    }}
-                        className={ulStyles}
+                    <li onClick={() => setMenu("women")}
+                        className={liSideNavStyles}
+                        ref={listItemRef3}
                     >
-                        <Link to="/women">Women</Link> {menu === "women" ? <hr className={hrStyles}/> : <></>}
+                        <Link to="/women">Women</Link> {sidenavCheck()}
                     </li>
-                    <li onClick={() => {
-                        setMenu("kids")
-                    }}
-                        className={ulStyles}
+                    <li onClick={() => setMenu("kids")}
+                        className={liSideNavStyles}
+                        ref={listItemRef4}
                     >
-                        <Link to="/kids">Kids</Link> {menu === "kids" ? <hr className={hrStyles}/> : <></>}
+                        <Link to="/kids">Kids</Link> {sidenavCheck()}
                     </li>
                 </ul>
 
                 <div className="flex flex-col items-center gap-10 mt-10">
                     <Link to="/cart"><img src={cart_logo} className="max-xl:w-[32px]"/>
                         <div
-                            className="w-[20px] h-[20px] flex justify-center items-center rounded-full text-[12px] bg-red-700 text-white absolute top-[295px] right-[120px]">
+                            className="w-[20px] h-[20px] flex justify-center items-center rounded-full text-[12px] bg-red-700 text-white absolute top-[295px] right-[112px]">
                             {getTotalCartItems()}
                         </div>
                     </Link>
