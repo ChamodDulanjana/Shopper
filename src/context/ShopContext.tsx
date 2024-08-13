@@ -9,7 +9,7 @@ interface cartProps{
 }
 
 const getDefaultCart = () => {
-    let cart:cartProps = {};
+    let cart= {};
     for (let index = 0; index < all_product.length+1; index++) {
         cart[index] = 0;
     }
@@ -31,7 +31,20 @@ const ShopContextProvider = (props) => {
         setCartItems((prevState) => ({...prevState, [itemId]: prevState[itemId] - 1}));
     }
 
-    const contextValue = {allProduct, cartItems, addToCart, removeFromCart, setAllProduct};
+    const getTotalCartAmount = () => {
+        let totalAmount = 0;
+        for (const item in cartItems) {
+            if(cartItems[item]> 0) {
+                let productInfo;
+                allProduct.find((product) => {product.id === Number(item) ? productInfo=product : null});
+                totalAmount += productInfo.new_price * cartItems[item];
+
+            }
+        }
+        return totalAmount;
+    }
+
+    const contextValue = {allProduct, cartItems, addToCart, removeFromCart, setAllProduct, getTotalCartAmount};
 
     return(
         <ShopContext.Provider value={contextValue}>
