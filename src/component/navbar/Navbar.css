@@ -2,6 +2,9 @@
 
 }
 
-#navbar{
+
+
+.navbar{
+    display: block;
     right: 0;
 }

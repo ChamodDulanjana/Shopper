@@ -9,12 +9,12 @@ import './Navbar.css'
 const Navbar:React.FC = () => {
     const liStyles = "flex flex-col items-center justify-center gap-3 cursor-pointer max-xl:gap-1";
     const liSideNavStyles = "flex flex-col items-center justify-center cursor-pointer " +
-        "border-[2px] border-[#8c8c8c] w-full h-12 hover:bg-[#8c8c8c]";
+        "w-full h-12 hover:bg-[#F4B3AE]";
     const hrStyles = "border-non w-[80%] h-1 rounded-2xl bg-[#FF4141]";
 
     const [menu, setMenu] = useState<string>("shop");
     const {getTotalCartItems} = useContext(ShopContext);
-    const sideMenuRef = useRef(null);
+    const sideMenuRef = useRef<HTMLDivElement>(null);
     const listItemRef1 = useRef<HTMLLIElement>(null);
     const listItemRef2 = useRef<HTMLLIElement>(null);
     const listItemRef3 = useRef<HTMLLIElement>(null);
@@ -22,8 +22,12 @@ const Navbar:React.FC = () => {
 
 
     const menuIconToggle = (e)=> {
-       sideMenuRef.current.classList.toggle('.navbar');
-       e.target.classList.toggle('open');
+
+            sideMenuRef.current.style.display = 'block';
+            sideMenuRef.current.style.right = '0';
+
+            //sideMenuRef.current.classList.toggle('.navbar');
+       //e.target.classList.toggle('open');
     }
 
     useEffect(() => {
@@ -32,7 +36,6 @@ const Navbar:React.FC = () => {
         listItemRef2.current && menu === 'men' ? listItemRef2.current.style.backgroundColor = 'lightcoral': listItemRef2.current.style.backgroundColor = '';
         listItemRef3.current && menu === 'women' ? listItemRef3.current.style.backgroundColor = 'lightcoral': listItemRef3.current.style.backgroundColor = '';
         listItemRef4.current && menu === 'kids' ? listItemRef4.current.style.backgroundColor = 'lightcoral': listItemRef4.current.style.backgroundColor = '';
-
     }, [menu]); // Empty dependency array means this effect runs once after the component mounts
 
 
@@ -88,48 +91,52 @@ const Navbar:React.FC = () => {
 
             <div
                 ref={sideMenuRef}
-                className="bg-pink-200 w-[270px] h-[80%] absolute right-[0px] top-24 rounded-l-3xl">
+                className="bg-pink-200 w-[270px] h-[80%] absolute right-[-270px] top-24 rounded-l-3xl hidden">
                 <ul
-                    className="flex flex-col items-center gap-0 list-none text-[#626262] font-medium mt-10 text-[16px]">
+                    className="flex flex-col items-center gap-0 list-none text-[#626262] font-medium mt-10 text-[15px]">
                     <li onClick={() => setMenu("shop")}
                         className={liSideNavStyles}
                         ref={listItemRef1}
                     >
-                        <Link to="/">Shop</Link> {sidenavCheck()}
+                        <Link to="/">Shop</Link>
                     </li>
                     <li onClick={() => setMenu("men")}
                         className={liSideNavStyles}
                         ref={listItemRef2}
                     >
-                        <Link to="/men">Men</Link> {sidenavCheck()}
+                        <Link to="/men">Men</Link>
                     </li>
                     <li onClick={() => setMenu("women")}
                         className={liSideNavStyles}
                         ref={listItemRef3}
                     >
-                        <Link to="/women">Women</Link> {sidenavCheck()}
+                        <Link to="/women">Women</Link>
                     </li>
                     <li onClick={() => setMenu("kids")}
                         className={liSideNavStyles}
                         ref={listItemRef4}
                     >
-                        <Link to="/kids">Kids</Link> {sidenavCheck()}
+                        <Link to="/kids">Kids</Link>
                     </li>
                 </ul>
 
-                <div className="flex flex-col items-center gap-10 mt-10">
-                    <Link to="/cart"><img src={cart_logo} className="max-xl:w-[32px]"/>
-                        <div
-                            className="w-[20px] h-[20px] flex justify-center items-center rounded-full text-[12px] bg-red-700 text-white absolute top-[295px] right-[112px]">
-                            {getTotalCartItems()}
-                        </div>
-                    </Link>
-
-                    <Link to="/login">
-                        <button
-                            className="w-[110px] h-[40px] outline-none border-[1px] border-[#7a7a7a] rounded-full active:bg-[#f3f3f3]">Login
-                        </button>
-                    </Link>
+                <div className="flex flex-col items-center w-full h-12">
+                    <div className="w-full h-12 hover:bg-[#F4B3AE] flex justify-center items-center">
+                        <Link to="/cart"><img src={cart_logo} className="w-[26px] pt-[14px] pb-2"/>
+                            <div
+                                className="w-[18px] h-[18px] flex justify-center items-center rounded-full text-[10px]
+                            bg-red-700 text-white absolute top-[236px] right-[112px]">
+                                {getTotalCartItems()}
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="w-full h-14 hover:bg-[#F4B3AE] flex justify-center items-center">
+                        <Link to="/login">
+                            <button
+                                className=" h-12 outline-none border-none">Login
+                            </button>
+                        </Link>
+                    </div>
                 </div>
 
             </div>
