@@ -39,33 +39,39 @@ const CartItems = () => {
                 }
                 return null;
             })}
-            <div className="flex my-24">
+            <div className="flex my-24 text-sm">
                 <div className="flex-1 flex flex-col mr-[200px] gap-10">
-                    <h1>Cart Total</h1>
+                    <h1 className="text-xl font-bold">Cart Total</h1>
                     <div>
-                        <div>
+                        <div className="flex justify-between py-5">
                             <p>Subtotal</p>
                             <p>$0</p>
                         </div>
                         <hr/>
-                        <div>
+                        <div className="flex justify-between py-5">
                             <p>Shipping Fee</p>
-                            <p>Free
-                            </p>
-                            <hr/>
-                            <div>
-                                <h3>Total</h3>
-                                <h3>$0</h3>
-                            </div>
+                            <p>Free</p>
                         </div>
-                        <button>PROCEED TO CHECKOUT</button>
+                        <hr/>
+                        <div className="flex justify-between py-5 font-bold">
+                            <h3>Total</h3>
+                            <h3>$0</h3>
+                        </div>
+                        <button
+                            className="w-[240px] h-[50px] outline-none border-none bg-[#ff5a5a] text-white text-sm font-medium cursor-pointer mt-10">PROCEED
+                            TO CHECKOUT
+                        </button>
                     </div>
-                    <div>
-                        <p>If you have a promo code, Enter it here</p>
-                        <div>
-                            <input type="text"/>
-                            <button>Submit</button>
-                        </div>
+                </div>
+
+                <div className="flex-1 font-medium text-sm">
+                    <p className="text-[#555]">If you have a promo code, Enter it here</p>
+                    <div className="w-[450px] h-[45px] mt-5 pl-5 bg-[#eaeaea] flex items-center">
+                        <input
+                            placeholder="Promo code"
+                            type="text"
+                            className="border-none outline-none bg-transparent text-sm w-[330px] h-[50px]"/>
+                        <button className=" w-[170px] h-[45px] text-sm font-medium bg-black text-white cursor-pointer">Submit</button>
                     </div>
                 </div>
             </div>
