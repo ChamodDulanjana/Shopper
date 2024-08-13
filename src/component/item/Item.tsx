@@ -10,7 +10,7 @@ interface Props {
     key?: number
 }
 
-const Item = ({id, image, name, new_price, old_price}: Props) => {
+const Item = ({id, image, name, new_price, old_price }: Props) => {
     return (
         <Link to={`/product/${id}`} onClick={():void =>{
             window.scrollTo({

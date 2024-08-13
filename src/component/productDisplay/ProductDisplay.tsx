@@ -55,7 +55,9 @@ const ProductDisplay = ({props}: ProductProp) => {
                         <div className={sizesStyles}>2XL</div>
                     </div>
                 </div>
-                <button className="text-white bg-[#FF4141] mb-10 border-none outline-none cursor-pointer w-48 h-14
+                <button
+                    onClick={() => addToCart(product.id)}
+                    className="text-white bg-[#FF4141] mb-10 border-none outline-none cursor-pointer w-48 h-14
                 active:text-[15px] active:transition duration-500" >
                     ADD TO CART
                 </button>

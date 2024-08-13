@@ -3,8 +3,13 @@ import all_product, {Product} from "../assets/all_product.tsx";
 
 export const ShopContext = createContext(null);
 
+interface cartProps{
+    id: number;
+    quantity: number;
+}
+
 const getDefaultCart = () => {
-    let cart = {};
+    let cart:cartProps = {};
     for (let index = 0; index < all_product.length+1; index++) {
         cart[index] = 0;
     }
@@ -16,13 +21,14 @@ const ShopContextProvider = (props) => {
 
     const [cartItems, setCartItems] = useState(getDefaultCart());
     const [allProduct, setAllProduct] = useState(all_product);
+    //console.log(cartItems);
 
     const addToCart = (itemId) => {
-        setCartItems((prev) => ({...prev, [itemId]:prev[itemId]+1}));
+        setCartItems((prevState) => ({...prevState, [itemId]: prevState[itemId] + 1}));
     }
 
     const removeFromCart = (itemId) => {
-        setCartItems((prev) => ({...prev, [itemId]:prev[itemId]-1}));
+        setCartItems((prevState) => ({...prevState, [itemId]: prevState[itemId] - 1}));
     }
 
     const contextValue = {allProduct, cartItems, addToCart, removeFromCart, setAllProduct};
