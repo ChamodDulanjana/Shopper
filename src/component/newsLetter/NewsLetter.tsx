@@ -8,10 +8,14 @@ const NewsLetter = () => {
             <p className="text-[#454545] text-xl max-xl:text-lg max-[800px]:text-[16px]">Subscribe to our new letter and stay on update</p>
             <div className="flex items-center justify-between bg-white w-[65vw] h-[60px] rounded-full  max-[1414px]:h-[55px]
             max-xl:h-[50px] max-[800px]:h-[45px]">
-                <input type="email" placeholder="Input your email" className="w-[500px] ml-8 border-none outline-none text-[#616161] font-poppins text-sm"/>
-                <button className="w-[210px] h-[60px] rounded-full bg-black text-white text-sm cursor-pointer active:text-[13px]
+                <input
+                    type="email"
+                    placeholder="Input your email"
+                    className="w-[500px] ml-8 border-none outline-none text-[#616161] font-poppins text-sm"/>
+                <button
+                    className="w-[210px] h-[60px] rounded-full bg-black text-white text-sm cursor-pointer active:text-[13px]
                 active:transition duration-500 max-[1414px]:h-[55px] max-xl:h-[50px] max-xl:w-[180px] max-[800px]:h-[45px]
-                max-[800px]:text-[12px] px-5">Subscribe</button>
+                 px-5">Subscribe</button>
             </div>
         </div>
     );
