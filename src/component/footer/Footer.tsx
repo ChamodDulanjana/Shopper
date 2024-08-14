@@ -11,22 +11,22 @@ const Footer = () => {
                 <img src={footer_logo} alt=""/>
                 <p className="text-[#383838] text-2xl font-medium">SHOPPER</p>
             </div>
-            <ul className="flex list-none gap-12 text-[#252525] text-[16px]">
-                <li className="cursor-pointer">Company</li>
-                <li className="cursor-pointer">Product</li>
-                <li className="cursor-pointer">Offices</li>
-                <li className="cursor-pointer">About</li>
-                <li className="cursor-pointer">Contact</li>
+            <ul className="flex list-none gap-12 text-[#252525] text-[16px] items-center justify-center max-sm:flex-col max-sm:gap-6">
+                <li className="cursor-pointer hover:text-pink-500">Company</li>
+                <li className="cursor-pointer hover:text-pink-500">Product</li>
+                <li className="cursor-pointer hover:text-pink-500">Offices</li>
+                <li className="cursor-pointer hover:text-pink-500">About</li>
+                <li className="cursor-pointer hover:text-pink-500">Contact</li>
             </ul>
             <div className="flex gap-4">
                 <div className="p-5 pb-2">
-                    <img src={instagram_icon} className="w-5 cursor-pointer"/>
+                    <img src={instagram_icon} className="w-5 cursor-pointer hover:scale-110 transition duration-300"/>
                 </div>
                 <div className="p-5 pb-2">
-                    <img src={pintester_icon} className="w-5 cursor-pointer"/>
+                    <img src={pintester_icon} className="w-5 cursor-pointer hover:scale-110 transition duration-300"/>
                 </div>
                 <div className="p-5 pb-2">
-                    <img src={whatsapp_icon} className="w-5 cursor-pointer"/>
+                    <img src={whatsapp_icon} className="w-5 cursor-pointer hover:scale-110 transition duration-300"/>
                 </div>
             </div>
             <div className="flex flex-col items-center gap-10 w-full mb-8 text-[#1a1a1a] text-lg">
