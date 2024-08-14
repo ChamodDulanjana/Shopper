@@ -19,7 +19,7 @@ const Item = ({id, image, name, new_price, old_price }: Props) => {
                 behavior: 'auto'  // Optional: 'auto' or 'smooth'
             });
         }}>
-            <div className="w-56  hover:transition duration-600 hover:scale-105 cursor-pointer">
+            <div className="w-56  hover:transition duration-600 hover:scale-105 cursor-pointer max-[640px]:w-48 max-[523px]:w-40">
                 <img src={image} alt=""/>
                 <p className="mt-2 text-sm">{name}</p>
                 <div className="flex gap-4 mt-2">
