@@ -91,7 +91,7 @@ const Navbar:React.FC = () => {
 
             <div
                 ref={sideMenuRef}
-                className="bg-pink-200 w-[270px] h-[80%] absolute right-[-270px] top-24 rounded-l-3xl hidden">
+                className="bg-pink-200 w-[270px] h-[60%] absolute right-[-270px] top-24 rounded-l-3xl hidden">
                 <ul
                     className="flex flex-col items-center gap-0 list-none text-[#626262] font-medium mt-10 text-[15px]">
                     <li onClick={() => setMenu("shop")}
