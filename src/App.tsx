@@ -15,7 +15,7 @@ import kids_banner from './assets/banner_kids.png'
 function App() {
 
   return (
-    <div className="font-poppins m-0">
+    <div className="font-poppins m-0 relative">
         <BrowserRouter>
             <Navbar />
             <Routes>

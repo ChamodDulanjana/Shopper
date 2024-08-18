@@ -7,3 +7,13 @@
     @apply transform;
     transform: scale(1.1) rotate(10deg);
 }
+
+.toggle_size_style{
+    background-color: #55efc4;
+    border-color: #00b894;
+}
+
+.toggle_size_style_default{
+    background-color: #F0EEF3;
+    border-color: #8c8c8c;
+}

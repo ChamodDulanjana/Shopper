@@ -1,14 +1,16 @@
 import React, {useContext} from 'react';
 import {ShopContext} from "../../context/ShopContext.tsx";
 import remove_icon from '../../assets/cart_cross_icon.png'
+import './CartItem.css'
 
 const CartItems = () => {
 
     const {allProduct, cartItems, removeFromCart, getTotalCartAmount} = useContext(ShopContext);
 
     return (
-        <div className="my-16 mx-40">
-            <div className="grid grid-cols-[0.5fr,2fr,1fr,1fr,1fr,1fr] items-center gap-20 py-5 text-[#454545] text-sm font-bold">
+        <div className="my-16 mx-40 max-xl:mx-20">
+            <div className="grid grid-cols-[0.5fr,2fr,1fr,1fr,1fr,1fr] items-center gap-20 py-5 text-[#454545] text-sm font-bold
+            max-xl:grid-cols-[0.5fr,3fr,0.5fr,0.5fr,0.5fr,0.5fr] max-[1206px]:gap-16 ">
                 <p>Products</p>
                 <p>Title</p>
                 <p>Price</p>
@@ -20,9 +22,10 @@ const CartItems = () => {
             {allProduct.map((product) => {
                 if(cartItems[product.id]>0) {
                     return <div>
-                        <div className="grid grid-cols-[0.5fr,2fr,1fr,1fr,1fr,1fr] items-center gap-20 py-5 text-[#454545] text-sm font-medium">
-                            <img src={product.image} alt=""/>
-                            <p>{product.name}</p>
+                        <div className="grid grid-cols-[0.5fr,2fr,1fr,1fr,1fr,1fr] items-center gap-20 py-5 text-[#454545]
+                        text-sm font-medium max-[1206px]:gap-16 max-xl:grid-cols-[0.5fr,3fr,0.5fr,0.5fr,0.5fr,0.5fr]">
+                            <img src={product.image} className="max-[1206px]:w-[55px]"/>
+                            <p>{product.name}{"-"+product.size}</p>
                             <p>${product.new_price}</p>
                             <button
                             className="h-[50px] w-[64px] border-[2px] border-[#ebebeb] bg-white rounded-lg"
@@ -39,8 +42,10 @@ const CartItems = () => {
                 }
                 return null;
             })}
-            <div className="flex my-24 text-sm">
-                <div className="flex-1 flex flex-col mr-[200px] gap-10">
+            <div className="flex my-24 text-sm cart-item-sub">
+                <div
+                    id="div1"
+                    className="flex-1 flex flex-col mr-[200px] gap-10">
                     <h1 className="text-xl font-bold">Cart Total</h1>
                     <div>
                         <div className="flex justify-between py-5">
@@ -64,16 +69,6 @@ const CartItems = () => {
                     </div>
                 </div>
 
-                <div className="flex-1 font-medium text-sm">
-                    <p className="text-[#555]">If you have a promo code, Enter it here</p>
-                    <div className="w-[450px] h-[45px] mt-5 pl-5 bg-[#eaeaea] flex items-center">
-                        <input
-                            placeholder="Promo code"
-                            type="text"
-                            className="border-none outline-none bg-transparent text-sm w-[330px] h-[50px]"/>
-                        <button className=" w-[170px] h-[45px] text-sm font-medium bg-black text-white cursor-pointer">Submit</button>
-                    </div>
-                </div>
             </div>
         </div>
     );

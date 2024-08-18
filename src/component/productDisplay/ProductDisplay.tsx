@@ -1,8 +1,9 @@
-import React, {useContext} from 'react';
+import React, {useContext, useRef, useState} from 'react';
 import {ProductProp} from "../breadcrum/BreadCrum.tsx";
 import star_icon from '../../assets/star_icon.png'
 import star_dull_icon from '../../assets/star_dull_icon.png'
 import {ShopContext} from "../../context/ShopContext.tsx";
+import '../../index.css'
 
 const ProductDisplay = ({props}: ProductProp) => {
     const product = props;
@@ -12,6 +13,19 @@ const ProductDisplay = ({props}: ProductProp) => {
     const starImgStyles = "max-[552px]:h-[13px]";
 
     const {addToCart} = useContext(ShopContext);
+    const sizeS = useRef();
+    const sizeM = useRef();
+    const sizeL = useRef();
+    const sizeXL = useRef();
+    const size2XL = useRef();
+
+    const toggleSize = (size)=>{
+        size === "[S]" ? sizeS.current.style.backgroundColor = "#55efc4" : sizeS.current.style.backgroundColor = "#F0EEF3";
+        size === "[M]" ? sizeM.current.style.backgroundColor = "#55efc4" : sizeM.current.style.backgroundColor = "#F0EEF3";
+        size === "[L]" ? sizeL.current.style.backgroundColor = "#55efc4" : sizeL.current.style.backgroundColor = "#F0EEF3";
+        size === "[XL]" ? sizeXL.current.style.backgroundColor = "#55efc4" : sizeXL.current.style.backgroundColor = "#F0EEF3";
+        size === "[2XL]" ? size2XL.current.style.backgroundColor = "#55efc4" : size2XL.current.style.backgroundColor = "#F0EEF3";
+    }
 
     return (
         <div className=" mx-20 mt-10 mb-20 flex max-[850px]:flex-col max-[850px]:items-center">
@@ -51,11 +65,28 @@ const ProductDisplay = ({props}: ProductProp) => {
                 <div>
                     <h1 className="text-lg font-medium max-[552px]:text-[16px]">Select Size</h1>
                     <div className="flex my-5 gap-4">
-                        <div className={sizesStyles}>S</div>
-                        <div className={sizesStyles}>M</div>
-                        <div className={sizesStyles}>L</div>
-                        <div className={sizesStyles}>XL</div>
-                        <div className={sizesStyles}>2XL</div>
+                        <div className={sizesStyles} ref={sizeS} onClick={()=> {
+                            product.size = "[S]";
+                            toggleSize("[S]");
+                            /*sizeS.current.classList.toggle("toggle_size_style");*/
+                            /*sizeS.current.style.borderColor = "#00b894"*/
+                        }}>S</div>
+                        <div className={sizesStyles} ref={sizeM} onClick={()=> {
+                            product.size = "[M]";
+                            toggleSize("[M]");
+                        }}>M</div>
+                        <div className={sizesStyles} ref={sizeL} onClick={()=> {
+                            product.size = "[L]";
+                            toggleSize("[L]");
+                        }}>L</div>
+                        <div className={sizesStyles} ref={sizeXL} onClick={()=> {
+                            product.size = "[XL]";
+                            toggleSize("[XL]");
+                        }}>XL</div>
+                        <div className={sizesStyles} ref={size2XL} onClick={()=> {
+                            product.size = "[2XL]";
+                            toggleSize("[2XL]");
+                        }}>2XL</div>
                     </div>
                 </div>
                 <button

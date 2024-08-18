@@ -42,6 +42,7 @@ export interface Product {
     image: any,
     new_price: number,
     old_price: number,
+    size: string,
 }
 
 
@@ -53,6 +54,7 @@ const all_product: Product[] = [
         image: p1_img,
         new_price: 50.0,
         old_price: 80.5,
+        size: "[M]",
     },
     {
         id: 2,
@@ -61,6 +63,7 @@ const all_product: Product[] = [
         image: p2_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 3,
@@ -69,6 +72,7 @@ const all_product: Product[] = [
         image: p3_img,
         new_price: 60.0,
         old_price: 100.5,
+        size: "[M]",
     },
     {
         id: 4,
@@ -77,6 +81,7 @@ const all_product: Product[] = [
         image: p4_img,
         new_price: 100.0,
         old_price: 150.0,
+        size: "[M]",
     },
     {
         id: 5,
@@ -85,6 +90,7 @@ const all_product: Product[] = [
         image: p5_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 6,
@@ -93,6 +99,7 @@ const all_product: Product[] = [
         image: p6_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 7,
@@ -101,6 +108,7 @@ const all_product: Product[] = [
         image: p7_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 8,
@@ -109,6 +117,7 @@ const all_product: Product[] = [
         image: p8_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 9,
@@ -117,6 +126,7 @@ const all_product: Product[] = [
         image: p9_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 10,
@@ -125,6 +135,7 @@ const all_product: Product[] = [
         image: p10_img,
         new_price: 70.50,
         old_price: 120.50,
+        size: "[M]",
     },
     {
         id: 11,
@@ -133,6 +144,7 @@ const all_product: Product[] = [
         image: p11_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 12,
@@ -141,6 +153,7 @@ const all_product: Product[] = [
         image: p12_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 13,
@@ -149,6 +162,7 @@ const all_product: Product[] = [
         image: p13_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 14,
@@ -157,6 +171,7 @@ const all_product: Product[] = [
         image: p14_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 15,
@@ -165,6 +180,7 @@ const all_product: Product[] = [
         image: p15_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 16,
@@ -173,6 +189,7 @@ const all_product: Product[] = [
         image: p16_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 17,
@@ -181,6 +198,7 @@ const all_product: Product[] = [
         image: p17_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 18,
@@ -189,6 +207,7 @@ const all_product: Product[] = [
         image: p18_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 19,
@@ -197,6 +216,7 @@ const all_product: Product[] = [
         image: p19_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 20,
@@ -205,6 +225,7 @@ const all_product: Product[] = [
         image: p20_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 21,
@@ -213,6 +234,7 @@ const all_product: Product[] = [
         image: p21_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 22,
@@ -221,6 +243,7 @@ const all_product: Product[] = [
         image: p22_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 23,
@@ -229,6 +252,7 @@ const all_product: Product[] = [
         image: p23_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 24,
@@ -237,6 +261,7 @@ const all_product: Product[] = [
         image: p24_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 25,
@@ -245,6 +270,7 @@ const all_product: Product[] = [
         image: p25_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 26,
@@ -253,6 +279,7 @@ const all_product: Product[] = [
         image: p26_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 27,
@@ -261,6 +288,7 @@ const all_product: Product[] = [
         image: p27_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 28,
@@ -269,6 +297,7 @@ const all_product: Product[] = [
         image: p28_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 29,
@@ -277,6 +306,7 @@ const all_product: Product[] = [
         image: p29_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 30,
@@ -285,6 +315,7 @@ const all_product: Product[] = [
         image: p30_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 31,
@@ -293,6 +324,7 @@ const all_product: Product[] = [
         image: p31_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 32,
@@ -301,6 +333,7 @@ const all_product: Product[] = [
         image: p32_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 33,
@@ -309,6 +342,7 @@ const all_product: Product[] = [
         image: p33_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 34,
@@ -317,6 +351,7 @@ const all_product: Product[] = [
         image: p34_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 35,
@@ -325,6 +360,7 @@ const all_product: Product[] = [
         image: p35_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
     {
         id: 36,
@@ -333,6 +369,7 @@ const all_product: Product[] = [
         image: p36_img,
         new_price: 85.0,
         old_price: 120.5,
+        size: "[M]",
     },
 ];
 
