@@ -17,6 +17,10 @@ export default {
       },
       transitionDuration: {
         '6': '6s'
+      },
+      boxShadow: {
+        'all': '0 0 10px 1000px rgba(0, 0, 0, 0.5)',
+        'custom': '-300px 300px 0 300px rgba(0, 0, 0, 0.5)',
       }
     },
   },

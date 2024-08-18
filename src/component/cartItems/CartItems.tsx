@@ -8,9 +8,9 @@ const CartItems = () => {
     const {allProduct, cartItems, removeFromCart, getTotalCartAmount} = useContext(ShopContext);
 
     return (
-        <div className="my-16 mx-40 max-xl:mx-20">
+        <div className="my-16 mx-40 max-xl:mx-20 max-[900px]:mx-10">
             <div className="grid grid-cols-[0.5fr,2fr,1fr,1fr,1fr,1fr] items-center gap-20 py-5 text-[#454545] text-sm font-bold
-            max-xl:grid-cols-[0.5fr,3fr,0.5fr,0.5fr,0.5fr,0.5fr] max-[1206px]:gap-16 ">
+            max-xl:grid-cols-[0.5fr,3fr,0.5fr,0.5fr,0.5fr,0.5fr] max-[1206px]:gap-16 max-[800px]:gap-10  max-[700px]:hidden">
                 <p>Products</p>
                 <p>Title</p>
                 <p>Price</p>
@@ -23,12 +23,13 @@ const CartItems = () => {
                 if(cartItems[product.id]>0) {
                     return <div>
                         <div className="grid grid-cols-[0.5fr,2fr,1fr,1fr,1fr,1fr] items-center gap-20 py-5 text-[#454545]
-                        text-sm font-medium max-[1206px]:gap-16 max-xl:grid-cols-[0.5fr,3fr,0.5fr,0.5fr,0.5fr,0.5fr]">
+                        text-sm font-medium max-[1206px]:gap-16 max-xl:grid-cols-[0.5fr,3fr,0.5fr,0.5fr,0.5fr,0.5fr] max-[800px]:gap-10
+                        max-[900px]:grid-cols-[0.5fr,2fr,0.5fr,0.5fr,0.5fr,0.5fr] max-[700px]:flex">
                             <img src={product.image} className="max-[1206px]:w-[55px]"/>
                             <p>{product.name}{"-"+product.size}</p>
                             <p>${product.new_price}</p>
                             <button
-                            className="h-[50px] w-[64px] border-[2px] border-[#ebebeb] bg-white rounded-lg"
+                            className="h-[50px] w-[64px] border-[2px] border-[#ebebeb] bg-white rounded-lg max-[700px]:gap-5"
                             >{cartItems[product.id]}</button>
                             <p>${product.new_price * cartItems[product.id]}</p>
                             <img
@@ -45,7 +46,7 @@ const CartItems = () => {
             <div className="flex my-24 text-sm cart-item-sub">
                 <div
                     id="div1"
-                    className="flex-1 flex flex-col mr-[200px] gap-10">
+                    className="flex-1 flex flex-col mr-[50px] gap-10">
                     <h1 className="text-xl font-bold">Cart Total</h1>
                     <div>
                         <div className="flex justify-between py-5">

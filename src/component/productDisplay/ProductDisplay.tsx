@@ -4,12 +4,13 @@ import star_icon from '../../assets/star_icon.png'
 import star_dull_icon from '../../assets/star_dull_icon.png'
 import {ShopContext} from "../../context/ShopContext.tsx";
 import '../../index.css'
+import { IoClose } from "react-icons/io5";
 
 const ProductDisplay = ({props}: ProductProp) => {
     const product = props;
     const sizesStyles = "bg-[#F0EEF3] border-[#8c8c8c] border-[1px] w-10 h-10 flex items-center justify-center rounded-[3px] " +
         "cursor-pointer max-[552px]:text-sm max-[552px]:w-8 max-[552px]:h-8";
-    const smImgStyles = "w-[110px] max-[850px]:w-[65px]";
+    const smImgStyles = "w-[110px] max-[850px]:w-[65px] max-[2000px]:w-[90px]";
     const starImgStyles = "max-[552px]:h-[13px]";
 
     const {addToCart} = useContext(ShopContext);
@@ -18,6 +19,8 @@ const ProductDisplay = ({props}: ProductProp) => {
     const sizeL = useRef();
     const sizeXL = useRef();
     const size2XL = useRef();
+
+    const [popup, setPopup] = useState(false);
 
     const toggleSize = (size)=>{
         size === "[S]" ? sizeS.current.style.backgroundColor = "#55efc4" : sizeS.current.style.backgroundColor = "#F0EEF3";
@@ -28,16 +31,23 @@ const ProductDisplay = ({props}: ProductProp) => {
     }
 
     return (
-        <div className=" mx-20 mt-10 mb-20 flex max-[850px]:flex-col max-[850px]:items-center">
+        <div className=" mx-20 mt-10 mb-20 flex max-[850px]:flex-col max-[850px]:items-center relative">
+
+            {popup && <div
+                className="w-[450px] h-[150px] flex absolute top-16 left-0 right-0 m-auto shadow-all bg-green-400 rounded-[10px]">
+                <IoClose className="absolute right-2 top-2 text-red-500 text-xl cursor-pointer" onClick={()=> setPopup(false)}/>
+                <div className="absolute top-16 left-[90px] font-medium text-lg">Product Added Successfully!</div>
+            </div>}
+
             <div className="flex gap-4 max-[850px]:mb-20">
                 <div className="flex flex-col gap-4">
-                    <img src={product.image} className={smImgStyles}/>
+                <img src={product.image} className={smImgStyles}/>
                     <img src={product.image} className={smImgStyles}/>
                     <img src={product.image} className={smImgStyles}/>
                     <img src={product.image} className={smImgStyles}/>
                 </div>
                 <div>
-                    <img src={product.image} className="w-[500px] max-[850px]:w-[300px]"/>
+                    <img src={product.image} className="w-[500px] max-[2000px]:w-[400px] max-[850px]:w-[300px]"/>
                 </div>
             </div>
 
@@ -90,10 +100,13 @@ const ProductDisplay = ({props}: ProductProp) => {
                     </div>
                 </div>
                 <button
-                    onClick={() => addToCart(product.id)}
+                    onClick={() => {
+                        addToCart(product.id);
+                        setPopup(true);
+                    }}
                     className="text-white bg-[#FF4141] mb-10 border-none outline-none cursor-pointer w-48 h-14
                 active:text-[15px] active:transition duration-500 max-[552px]:w-40 max-[552px]:h-12 max-[552px]:text-sm" >
-                    ADD TO CART
+                ADD TO CART
                 </button>
                 <p className="text-sm"><span className="font-bold">Category : </span>Women, T-Shirt, Crop Top</p>
                 <p className="text-sm"><span className="font-bold">Tags : </span>Modern, Latest</p>

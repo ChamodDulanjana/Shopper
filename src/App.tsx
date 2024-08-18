@@ -10,6 +10,7 @@ import Footer from "./component/footer/Footer.tsx";
 import men_banner from './assets/banner_mens.png'
 import women_banner from './assets/banner_women.png'
 import kids_banner from './assets/banner_kids.png'
+import AddedSuccessful from "./component/popUp/AddedSuccessful.tsx";
 
 
 function App() {
@@ -25,9 +26,11 @@ function App() {
                 <Route path="/kids" element={<ShopCategory banner={kids_banner as string} category={"kid"}/>}/>
                 <Route path="/product" element={<ProductPg/>}>
                     <Route path=":productId" element={<ProductPg/>}/>
+                    <Route path=":popup" element={<AddedSuccessful/>}/>
                 </Route>
                 <Route path="/cart" element={<Cart/>}/>
                 <Route path="/login" element={<LoginSignup/>}/>
+
             </Routes>
             <Footer/>
         </BrowserRouter>

@@ -14,23 +14,23 @@ const Navbar:React.FC = () => {
 
     const [menu, setMenu] = useState<string>("shop");
     const {getTotalCartItems} = useContext(ShopContext);
-    //const sideMenuRef = useRef<HTMLDivElement>("");
-    const listItemRef1 = useRef<HTMLLIElement>(null);
-    const listItemRef2 = useRef<HTMLLIElement>(null);
-    const listItemRef3 = useRef<HTMLLIElement>(null);
-    const listItemRef4 = useRef<HTMLLIElement>(null);
+    const listItemRef1 = useRef<HTMLLIElement>();
+    const listItemRef2 = useRef<HTMLLIElement>();
+    const listItemRef3 = useRef<HTMLLIElement>();
+    const listItemRef4 = useRef<HTMLLIElement>();
+    const cartRef5 = useRef<HTMLLIElement>();
+    const loginRef6 = useRef<HTMLLIElement>();
 
 
-    useEffect(() => {
+    const sideNavbarLiStyles = (menu) => {
         // Check if the ref is not null (TypeScript safety check)
-      /*menu === 'shop' ? listItemRef1.current.style.backgroundColor = 'bg-pink-400': listItemRef1.current.style.backgroundColor = '';
-      menu === 'men' ? listItemRef2.current.style.backgroundColor = 'bg-pink-300': listItemRef2.current.style.backgroundColor = '';
-      menu === 'women' ? listItemRef3.current.style.backgroundColor = 'bg-pink-300': listItemRef3.current.style.backgroundColor = '';
-      menu === 'kids' ? listItemRef4.current.style.backgroundColor = 'bg-pink-300': listItemRef4.current.style.backgroundColor = '';
-*/
-      console.log(listItemRef1);
-
-    }, [menu]); // Empty dependency array means this effect runs once after the component mounts
+      menu === 'shop' ? listItemRef1.current.style.backgroundColor = "#fd79a8" :  listItemRef1.current.style.backgroundColor = "";
+      menu === 'men' ? listItemRef2.current.style.backgroundColor = '#fd79a8': listItemRef2.current.style.backgroundColor = '';
+      menu === 'women' ? listItemRef3.current.style.backgroundColor = '#fd79a8': listItemRef3.current.style.backgroundColor = '';
+      menu === 'kids' ? listItemRef4.current.style.backgroundColor = '#fd79a8': listItemRef4.current.style.backgroundColor = '';
+      menu === 'cart' ? cartRef5.current.style.backgroundColor = '#fd79a8': cartRef5.current.style.backgroundColor = '';
+      menu === 'login' ? loginRef6.current.style.backgroundColor = '#fd79a8': loginRef6.current.style.backgroundColor = '';
+    }
 
 
     const [toggleNavMenu, setToggleNavMenu] = useState(false);
@@ -88,28 +88,29 @@ const Navbar:React.FC = () => {
 
             {
                 toggleNavMenu && (<div
-                    className="bg-pink-200 w-[270px] h-[500px] absolute right-[0px] top-24 rounded-l-3xl block z-50 shadow-md">
+                    className="bg-pink-200 w-[270px] h-[80vh] absolute right-[0px] top-24 rounded-l-3xl block z-50 shadow-custom transition duration-500">
                     <ul
                         className="flex flex-col items-center gap-0 list-none text-[#626262] font-medium mt-10 text-[15px]">
-                        <li onClick={() => setMenu("shop")}
-                            className={liSideNavStyles}
+                        <li
                             ref={listItemRef1}
+                            onClick={() => sideNavbarLiStyles("shop")}
+                            className={liSideNavStyles}
                         >
                             <Link to="/">Shop</Link>
                         </li>
-                        <li onClick={() => setMenu("men")}
+                        <li onClick={() => sideNavbarLiStyles("men")}
                             className={liSideNavStyles}
                             ref={listItemRef2}
                         >
                             <Link to="/men">Men</Link>
                         </li>
-                        <li onClick={() => setMenu("women")}
+                        <li onClick={() =>sideNavbarLiStyles("women")}
                             className={liSideNavStyles}
                             ref={listItemRef3}
                         >
                             <Link to="/women">Women</Link>
                         </li>
-                        <li onClick={() => setMenu("kids")}
+                        <li onClick={() => sideNavbarLiStyles("kids")}
                             className={liSideNavStyles}
                             ref={listItemRef4}
                         >
@@ -118,7 +119,7 @@ const Navbar:React.FC = () => {
                     </ul>
 
                     <div className="flex flex-col items-center w-full h-12 text-[#626262] font-medium text-[15px]">
-                        <div className="w-full h-12 hover:bg-pink-300 flex justify-center items-center">
+                        <div className="w-full h-12 hover:bg-pink-300 flex justify-center items-center" ref={cartRef5} onClick={()=> sideNavbarLiStyles("cart")}>
                             <Link to="/cart"><img src={cart_logo} className="w-[26px] pt-[14px] pb-2"/>
                                 <div
                                     className="w-[18px] h-[18px] flex justify-center items-center rounded-full text-[10px]
@@ -127,7 +128,7 @@ const Navbar:React.FC = () => {
                                 </div>
                             </Link>
                         </div>
-                        <div className="w-full h-14 hover:bg-pink-300 flex justify-center items-center">
+                        <div className="w-full h-14 hover:bg-pink-300 flex justify-center items-center" ref={loginRef6} onClick={()=> sideNavbarLiStyles("login")}>
                             <Link to="/login">
                                 <button
                                     className=" h-12 outline-none border-none">Login
